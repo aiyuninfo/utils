@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
  * 通过spring获取bean
  */
 public class SpringUtils implements ApplicationContextAware {
-    private static ApplicationContext applicationContext = null;
+    private ApplicationContext applicationContext = null;
 
     @Override
     public void setApplicationContext(ApplicationContext arg0) throws BeansException {
-        if (SpringUtils.applicationContext == null) {
-            SpringUtils.applicationContext = arg0;
+        if (this.applicationContext == null) {
+            this.applicationContext = arg0;
         }
     }
 
@@ -23,21 +23,21 @@ public class SpringUtils implements ApplicationContextAware {
      * 获取applicationContext
      * @return
      */
-    public static ApplicationContext getApplicationContext() {
+    public  ApplicationContext getApplicationContext() {
         return applicationContext;
     }
 
     /**
      * 通过name获取 Bean
      */
-    public static Object getBean(String name) {
+    public Object getBean(String name) {
         return getApplicationContext().getBean(name);
     }
 
     /**
      * 通过class获取Bean
      */
-    public static <T> T getBean(Class<T> clazz) {
+    public <T> T getBean(Class<T> clazz) {
         return getApplicationContext().getBean(clazz);
     }
 
@@ -48,7 +48,7 @@ public class SpringUtils implements ApplicationContextAware {
      * @param <T>
      * @return
      */
-    public static <T> T getBean(String name, Class<T> clazz) {
+    public <T> T getBean(String name, Class<T> clazz) {
         return getApplicationContext().getBean(name, clazz);
     }
 
