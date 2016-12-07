@@ -10,3 +10,11 @@ Spring工具类，用于获取Spring bean，用在spring boot中，需要在main
     
     CustomerService customerService = springUtils.getBean(CustomerService.class);
     Customer customer = customerService.findOne(1l);
+
+
+#StringUtils
+Strign工具类，使用apache-commons-lang3的StringUtils方法
+
+
+#UUIDGenerator
+生成UUID工具类
