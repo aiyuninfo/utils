@@ -18,3 +18,10 @@ Strign工具类，使用apache-commons-lang3的StringUtils方法
 
 #UUIDGenerator
 生成UUID工具类
+
+#RandomUtil
+生成随机数
+
+
+#DateUtils
+日期工具类
