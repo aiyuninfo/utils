@@ -4,6 +4,7 @@
 
 #SpringUtils
 Spring工具类，用于获取Spring bean，用在spring boot中，需要在main class添加 @ComponentScan(basePackages = {"com.hythzx","com.aiyun"}) (注：com.hythzx是本地开发项目的package)使用方式：
+    
     @Inject
     private SpringUtils springUtils;
     
