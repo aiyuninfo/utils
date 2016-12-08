@@ -28,7 +28,7 @@ Strign工具类，使用apache-commons-lang3的StringUtils方法
 日期工具类
 
 
-#ListUtils
+#ArrayUtils
 数组操作工具类<br/>
 
 ```Java
