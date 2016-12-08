@@ -26,3 +26,11 @@ Strign工具类，使用apache-commons-lang3的StringUtils方法
 
 #DateUtils
 日期工具类
+
+
+#ListUtils
+数组操作工具类<br/>
+
+```Java
+ListUtils<Man> list7 = new ListUtilsImpl<>(personList).map(person1 -> manMapper.convertManFromPerson(person1));
+```
