@@ -4,6 +4,7 @@ import org.springframework.core.convert.converter.Converter;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Created by zhaoy on 2016/12/8.
@@ -11,7 +12,9 @@ import java.util.Optional;
  */
 public interface ArrayUtils<T> {
 
-    <S> ArrayUtils<S> map(Converter<? super T, ? extends S> var1);
+    <U> ArrayUtils<U> map(Converter<? super T, ? extends U> var1);
 
      Optional<List<T>> getList();
+
+    ArrayUtils<T> filter(Predicate<? super T> predicate);
 }

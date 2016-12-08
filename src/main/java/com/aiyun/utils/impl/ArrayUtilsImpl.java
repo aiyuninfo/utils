@@ -26,7 +26,7 @@ public class ArrayUtilsImpl<T> implements ArrayUtils<T>,Serializable {
     }
 
     @Override
-    public <S> ArrayUtils<S> map(Converter<? super T, ? extends S> converter) {
+    public <U> ArrayUtils<U> map(Converter<? super T, ? extends U> converter) {
         Assert.notNull(converter, "Converter must not be null!");
         ArrayList result = new ArrayList(this.content.size());
         Iterator<T> var3 = this.iterator();
@@ -37,7 +37,7 @@ public class ArrayUtilsImpl<T> implements ArrayUtils<T>,Serializable {
         return new ArrayUtilsImpl(result);
     }
 
-    public <S> ArrayUtils<T> filter(Predicate<? super T> predicate){
+    public ArrayUtils<T> filter(Predicate<? super T> predicate){
         Objects.requireNonNull(predicate);
         ArrayList result = new ArrayList(this.content.size());
         Iterator<T> var3 = this.iterator();
