@@ -9,9 +9,9 @@ import java.util.Optional;
  * Created by zhaoy on 2016/12/8.
  * 数组操作工具类
  */
-public interface ListUtils<T> {
+public interface ArrayUtils<T> {
 
-    <S> ListUtils<S> map(Converter<? super T, ? extends S> var1);
+    <S> ArrayUtils<S> map(Converter<? super T, ? extends S> var1);
 
      Optional<List<T>> getList();
 }

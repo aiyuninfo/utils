@@ -1,5 +1,5 @@
-import com.aiyun.utils.ListUtils;
-import com.aiyun.utils.impl.ListUtilsImpl;
+import com.aiyun.utils.ArrayUtils;
+import com.aiyun.utils.impl.ArrayUtilsImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,21 +21,24 @@ public class TestCase {
             person.setName("age of " + i + " person");
             personList.add(person);
         }
-        ListUtilsImpl<String> list2 = new ListUtilsImpl<>(list);
-        ListUtils<Boolean> list1 = list2.map(item -> item.contains("2"));
-        Optional<List<String>> list3 = new ListUtilsImpl<>(list).map(item -> {
+        ArrayUtilsImpl<String> list2 = new ArrayUtilsImpl<>(list);
+        ArrayUtils<Boolean> list1 = list2.map(item -> item.contains("2"));
+        Optional<List<String>> list3 = new ArrayUtilsImpl<>(list).map(item -> {
             if ("1".equals(item)) {
                 return "it is 1 !!!!!!!!!!!";
             }
             return item;
         }).getList();
-        Optional<List<String>> list4 = new ListUtilsImpl<>(personList).map(person1 -> person1.getName()).getList();
-        Optional<List<Integer>> list6 = new ListUtilsImpl<>(personList).map(Person::getAge).getList();
+        Optional<List<String>> list4 = new ArrayUtilsImpl<>(personList).map(person1 -> person1.getName()).getList();
+        Optional<List<Integer>> list6 = new ArrayUtilsImpl<>(personList).map(Person::getAge).getList();
         Optional<List<String>> list5 = list4.filter(strings -> !strings.contains("1"));
         list6.orElse(new ArrayList<>()).forEach(item -> {
             System.out.println(item);
         });
-        ListUtils<Man> list7 = new ListUtilsImpl<>(personList).map(person1 -> manMapper.convertManFromPerson(person1));
+        Optional<List<String>> list8 = list5.filter(strings -> true);
+        ArrayUtils<Man> list7 = new ArrayUtilsImpl<>(personList).map(person1 -> manMapper.convertManFromPerson(person1));
+        List<Man> personList1 =  new ArrayUtilsImpl<>(personList).filter(person1 -> person1.getAge() > 10).map(person1 -> manMapper.convertManFromPerson(person1)).getList().orElse(new ArrayList<>());
+        personList1.sort((o1, o2) -> o1.getAge() - o2.getAge());
         System.out.println(list7);
     }
 }
@@ -102,7 +105,7 @@ class ManMapper{
         Man man = new Man();
         man.setAge(person.getAge());
         man.setSex(Sex.MALE);
-        man.setManName(person.getName());
+        man.setManName(person.getName() + " and type is Man");
         return man;
     }
 
