@@ -1,7 +1,7 @@
 package com.aiyun.utils.impl;
 
 import com.aiyun.utils.ArrayUtils;
-import org.springframework.core.convert.converter.Converter;
+import com.aiyun.utils.Converter;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
@@ -32,7 +32,8 @@ public class ArrayUtilsImpl<T> implements ArrayUtils<T>,Serializable {
         Iterator<T> var3 = this.iterator();
         while(var3.hasNext()) {
             T element = var3.next();
-            result.add(converter.convert(element));
+            U convert = converter.convert(element);
+            result.add(convert);
         }
         return new ArrayUtilsImpl(result);
     }
