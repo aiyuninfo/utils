@@ -2,12 +2,12 @@
 工具类
 
 
-#SpringUtils
+#SpringBeanUtils
 Spring工具类，用于获取Spring bean，用在spring boot中，需要在main class添加 
 `@ComponentScan(basePackages = {"com.hythzx","com.aiyun"})` (注：`com.hythzx`是本地开发项目的package)使用方式：
 ``` Java
     @Inject
-    private SpringUtils springUtils;
+    private SpringBeanUtils springUtils;
     
     CustomerService customerService = springUtils.getBean(CustomerService.class);
     Customer customer = customerService.findOne(1l);
@@ -58,6 +58,6 @@ List<Man> personList1 =  new ArrayUtilsImpl<>(personList).filter(person1 -> pers
 <dependency>
   <groupId>com.aiyun</groupId>
   <artifactId>utils</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
 </dependency>
 ```

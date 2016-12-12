@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * 通过spring获取bean
  */
-public class SpringUtils implements ApplicationContextAware {
+public class SpringBeanUtils implements ApplicationContextAware {
     private ApplicationContext applicationContext = null;
 
     @Override
