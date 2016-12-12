@@ -35,3 +35,29 @@ Strign工具类，使用apache-commons-lang3的StringUtils方法
 ListUtils<Man> list7 = new ListUtilsImpl<>(personList).map(person1 -> manMapper.convertManFromPerson(person1));
 List<Man> personList1 =  new ArrayUtilsImpl<>(personList).filter(person1 -> person1.getAge() > 10).map(person1 -> manMapper.convertManFromPerson(person1)).getList().orElse(new ArrayList<>());
 ```
+
+#ImageUploadUtil
+图片上传工具类<br>
+```Java
+ @RequestMapping("/index")
+    public String index(HttpServletRequest request,Model model) throws IOException {
+        ArrayUtils<FileInfo> arrayUtils;
+        List<FileInfo> fileInfos = ImageUploadUtil.upload(request, imgUploader);
+        arrayUtils = new ArrayUtilsImpl<>(fileInfos);
+        List<FileInfo> fileInfoList = arrayUtils.map(fileInfo -> {
+            fileInfo.setPath("/web/" + fileInfo.getFileName());
+            return fileInfo;
+        }).getList().orElse(new ArrayList<>());
+        model.addAttribute("fileInfos",fileInfoList);
+        return "index";
+    }
+```
+
+#Maven
+```XML
+<dependency>
+  <groupId>com.aiyun</groupId>
+  <artifactId>utils</artifactId>
+  <version>0.1.2</version>
+</dependency>
+```
