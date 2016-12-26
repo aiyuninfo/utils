@@ -43,7 +43,7 @@ public class ImageUploadUtil {
                             realPathDirectory.mkdirs();
                         }
                         fileName = RandomUtil.generatePassword() + suffix;
-                        File uploadFile = new File(realPathDirectory + "\\" + fileName);
+                        File uploadFile = new File(realPathDirectory + "/" + fileName);
                         fileInfo.setFileName(myFileName);
                         fileInfo.setPath(fileName);
                         fileInfoList.add(fileInfo);
